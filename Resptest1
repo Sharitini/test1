@@ -1,0 +1,12 @@
+function onFormSubmit(e) {
+  var form = FormApp.getActiveForm();
+  var response = form.getResponses()[0].getItemResponses()[0].getResponse();
+  
+  if (response === "LYON") {
+    var url = "URL_DE_LA_PAGINA_DESTINO";
+    var html = HtmlService.createHtmlOutput('<script>window.location.href="' + url + '";</script>');
+    return html;
+  } else {
+    return HtmlService.createHtmlOutput("Respuesta incorrecta. Intenta de nuevo.");
+  }
+}
